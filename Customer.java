@@ -9,11 +9,12 @@ public class Customer
 {
     // instance variables - replace the example below with your own
     private int x;
-
+    protected static int id;
+    protected static String nama;
     /**
      * Constructor for objects of class Customer
      */
-    public Customer()
+    public Customer(int id, String nama)
     {
         // initialise instance variables
         x = 0;
@@ -30,4 +31,25 @@ public class Customer
         // put your code here
         return x + y;
     }
+    
+    public static int getID()
+    {
+        return 0;
+    }
+    
+    public static String getNama()
+    {
+        return null;
+    }
+    
+    public static void setID(int id)
+    {
+     
+    }
+    
+    public static void setNama(String nama)
+    {
+        
+    }
 }
+

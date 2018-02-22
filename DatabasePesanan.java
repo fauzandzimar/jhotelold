@@ -9,7 +9,8 @@ public class DatabasePesanan
 {
     // instance variables - replace the example below with your own
     private int x;
-
+    private static String[] list_pesanan;
+    
     /**
      * Constructor for objects of class DatabasePesanan
      */
@@ -30,4 +31,30 @@ public class DatabasePesanan
         // put your code here
         return x + y;
     }
+    
+    public static boolean addPesanan(Pesanan baru)
+    {
+        return false;
+    }
+    
+    public static boolean removePesanan(Pesanan pesan)
+    {
+        return false;
+    }
+    
+    public static Pesanan getPesanan(Customer cust)
+    {
+        return null;
+    }
+    
+    public static String[] getPesananDatabase()
+    {
+        return null;
+    }
+    
+    public static void pesananDibatalkan(Pesanan pesan)
+    {
+        
+    }
+    
 }

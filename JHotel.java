@@ -9,6 +9,10 @@ public class JHotel
 {
     // instance variables - replace the example below with your own
     private int x;
+    public static void main(String[] args)
+    {
+        
+    }
 
     /**
      * Constructor for objects of class JHotel
