@@ -1,15 +1,15 @@
 
 /**
- * Write a description of class DatabasePesanan here.
+ * class DatabasePesanan .
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Fauzan Dzimar Rizqi)
+ * @version (0.2 1-3-2018)
  */
 public class DatabasePesanan
 {
     // instance variables - replace the example below with your own
-    private int x;
-    private static String[] list_pesanan;
+    private  int x;
+    private  String[] list_pesanan;
     
     /**
      * Constructor for objects of class DatabasePesanan
@@ -21,38 +21,61 @@ public class DatabasePesanan
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Method add pesanan 
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param pesanan
+     * @return  pesanan
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
-    
-    public static boolean addPesanan(Pesanan baru)
+
+    public  boolean addPesanan(Pesanan baru)
     {
         return false;
     }
     
-    public static boolean removePesanan(Pesanan pesan)
+    /**
+     * Method remove pesanan 
+     *
+     * @param pesanan
+     * @return  pesanan
+     */
+
+    public  boolean removePesanan(Pesanan pesan)
     {
         return false;
     }
     
-    public static Pesanan getPesanan(Customer cust)
+    /**
+     * Method get pesanan
+     *
+     * @param pesanan
+     * @return  pesanan
+     */
+
+    public  Pesanan getPesanan(Customer cust)
     {
         return null;
     }
     
-    public static String[] getPesananDatabase()
+    /**
+     * Method get PesananDatabase
+     *
+     * @param PesananDatabase
+     * @return PesananDatabase
+     */
+
+    public  String[] getPesananDatabase()
     {
         return null;
     }
     
-    public static void pesananDibatalkan(Pesanan pesan)
+    /**
+     * Method pesananDibatalkan 
+     *
+     * @param pesananDibatalkan
+     * @return  pesananDibatalkan
+     */
+
+    public  void pesananDibatalkan(Pesanan pesan)
     {
         
     }

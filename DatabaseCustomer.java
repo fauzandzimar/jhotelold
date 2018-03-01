@@ -1,15 +1,15 @@
 
 /**
- * Write a description of class DatabaseCustomer here.
+ * class DatabaseCustomer .
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Fauzan Dzimar Rizqi)
+ * @version (0.2 1-3-2018)
  */
 public class DatabaseCustomer
 {
     // instance variables - replace the example below with your own
     private int x;
-    private String[] list_customer; 
+    private static String[] list_customer; 
     /**
      * Constructor for objects of class DatabaseCustomer
      */
@@ -18,32 +18,41 @@ public class DatabaseCustomer
         // initialise instance variables
         x = 0;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
     
+    /**
+     * Method add customer 
+     *
+     * @param customer
+     * @return  add customer
+     */
+
     public static boolean addCustomer(Customer baru)
     {
         return false;
     }
     
+    /**
+     * Method remove customer 
+     *
+     * @param id
+     * @return  customer id removed
+     */
+
     public static int removeCustomer(int id)
     {
-        return 0;
+        return id;
     }
     
+    /**
+     * Method get CustomerDatabase
+     *
+     * @param CustomerDatabase
+     * @return CustomerDatabase 
+     */
+
     public static String[] getCustomerDatabase()
     {
-        return null;
+        return list_customer;
     }
     
 }

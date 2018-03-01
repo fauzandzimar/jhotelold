@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
+PROJECT TITLE:JHotel
+PURPOSE OF PROJECT:OOP
+VERSION or DATE:0.1 22-2-2018
+HOW TO START THIS PROJECT:s
+AUTHORS:Fauzan Dzimar Rizqi
 USER INSTRUCTIONS:

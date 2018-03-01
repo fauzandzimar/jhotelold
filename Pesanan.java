@@ -1,80 +1,142 @@
 
 /**
- * Write a description of class Pesanan here.
+ * class Pesanan .
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Fauzan Dzimar Rizqi)
+ * @version (0.2 1-3-2018)
  */
 public class Pesanan
 {
     // instance variables - replace the example below with your own
     private int x;
-    private static double biaya;
-    private static String nama_pelanggan;
-    private static String jenis_kamar;
-    private static boolean isDiproses;
-    private static boolean isSelesai;
+    private  double biaya;
+    private  Customer pelanggan;
+    private  String nama_pelanggan;
+    private  String jenis_kamar;
+    private  boolean isDiproses;
+    private  boolean isSelesai;
     
     /**
      * Constructor for objects of class Pesanan
      */
-    public Pesanan()
+    public Pesanan(double biaya,Customer pelanggan)
     {
         // initialise instance variables
-        x = 0;
+       this.biaya=biaya;
+       this.pelanggan = pelanggan;
     }
-
+    
     /**
-     * An example of a method - replace this comment with your own
+     * Method get biaya
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param biaya
+     * @return  biaya
      */
-    public int sampleMethod(int y)
+
+    public  double getbiaya()
     {
-        // put your code here
-        return x + y;
+        return biaya;    
     }
     
-    public static double getbiaya()
+    /**
+     * Method get pelanggan
+     *
+     * @param pelanggan
+     * @return  pelanggan
+     */
+
+    public  Customer getpelanggan()
     {
-     return 0;    
+        return pelanggan;   
     }
     
-    public static Customer getpelanggan()
+    /**
+     * Method get StatusDiproses
+     *
+     * @param StatusDiproses
+     * @return  StatusDiproses
+     */
+
+    public  boolean getStatusDiproses()
     {
-        return null;   
+        return isDiproses;
     }
     
-    public static boolean getStatusDiproses()
+    /**
+     * Method get StatusSelesai
+     *
+     * @param StatusSelesai
+     * @return  StatusSelesai
+     */
+
+    public  boolean getStatusSelesai()
     {
-        return false;
+        return isSelesai;
     }
     
-    public static boolean getStatusSelesai()
+    /**
+     * Method set biaya 
+     *
+     * @param biaya
+     * @return  biaya
+     */
+
+    public  double setBiaya(double biaya)
     {
-        return false;
+        this.biaya = biaya;
+        return biaya;
     }
     
-    public static double setBiaya(double biaya)
+    /**
+     * Method set pelanggan
+     *
+     * @param pelanggan
+     * @return  pelanggan
+     */
+
+    public  Customer setPelanggan(Customer baru)
     {
-        return 0;
+        this.pelanggan = pelanggan;
+        return pelanggan;
     }
     
-    public static Customer setPelanggan(Customer baru)
+    /**
+     * Method set StatusDiproses
+     *
+     * @param StatusDiproses
+     * @return  StatusDiproses
+     */
+
+    public  boolean setStatusDiproses(boolean diproses)
     {
-        return null;
+        this.isDiproses = isDiproses;
+        return isDiproses;
     }
     
-    public static boolean setStatusDiproses(boolean diproses)
+    /**
+     * Method set StatusSelesai
+     *
+     * @param StatusSelesai
+     * @return  StatusSelesai
+     */
+
+    public  boolean setStatusSelesai(boolean diproses)
     {
-        return false;
+        this.isSelesai = isSelesai;
+        return isSelesai;
     }
     
-    public static boolean setStatusSelesai(boolean diproses)
+    /**
+     * Method print biaya pelanggan
+     *
+     * @param biaya
+     * @param pelanggan
+     * @return  biaya pelanggan
+     */
+
+    public void printdata(double biaya,Customer pelanggan)
     {
-        return false;
+        this.biaya=biaya;
+        this.pelanggan = pelanggan;
     }
-    
-    
 }

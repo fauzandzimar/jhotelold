@@ -2,8 +2,8 @@
 /**
  * Write a description of class JHotel here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Fauzan Dzimar Rizqi)
+ * @version (0.1 22-2-2018)
  */
 public class JHotel
 {

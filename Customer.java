@@ -1,55 +1,86 @@
 
 /**
- * Write a description of class Customer here.
+ *class Customer .
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Fauzan Dzimar Rizqi)
+ * @version (0.1 22-2-2018)
  */
 public class Customer
 {
     // instance variables - replace the example below with your own
     private int x;
-    protected static int id;
-    protected static String nama;
+    protected  int id;
+    protected  String nama;
     /**
      * Constructor for objects of class Customer
      */
     public Customer(int id, String nama)
     {
         // initialise instance variables
-        x = 0;
+        this.nama = nama;
+        this.id = id;
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Method get id 
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param id
+     * @return id 
      */
-    public int sampleMethod(int y)
+
+    public  int getID()
     {
-        // put your code here
-        return x + y;
+        return id;
     }
     
-    public static int getID()
+    /**
+     * Method get nama
+     *
+     * @param nama
+     * @return nama  
+     */
+
+    public  String getNama()
     {
-        return 0;
+        return nama;
     }
     
-    public static String getNama()
+    /**
+     * Method set id 
+     *
+     * @param id
+     * @return id 
+     */
+
+    public void setID(int id)
     {
-        return null;
+     this.id = id;
     }
     
-    public static void setID(int id)
+    /**
+     * Method set nama
+     *
+     * @param nama
+     * @return nama 
+     */
+
+    public  void setNama(String nama)
     {
-     
+     this.nama = nama;
     }
     
-    public static void setNama(String nama)
+    /**
+     * Method print nama id
+     *
+     * @param nama
+     * @param id
+     * @return nama id
+     */
+
+    public void printdata(String nama,int id)
     {
-        
+        this.nama = nama;
+        this.id = id;
     }
 }
 
