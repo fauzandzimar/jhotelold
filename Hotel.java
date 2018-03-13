@@ -99,8 +99,8 @@ public class Hotel
      */
     public void printData()
     {
-        this.nama = nama;
-        this.lokasi = lokasi;
-        this.bintang = bintang;
+        System.out.println("Nama Hotel:"+this.nama);
+        System.out.println("Lokasi:"+this.lokasi);
+        System.out.println("Bintang:"+this.bintang);
     }
 }

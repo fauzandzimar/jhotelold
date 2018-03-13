@@ -9,9 +9,14 @@ public class JHotel
 {
     // instance variables - replace the example below with your own
     private int x;
+    private Customer customer;
+    private Pesanan pesanan;
+    private Lokasi lokasi;
+    private Hotel hotel;
+    
     public static void main(String[] args)
     {
-        
+
     }
 
     /**
@@ -33,5 +38,17 @@ public class JHotel
     {
         // put your code here
         return x + y;
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public void printData()
+    {
+        // put your code here
+        System.out.println("Welcome to JHotel");
     }
 }

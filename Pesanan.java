@@ -9,12 +9,13 @@ public class Pesanan
 {
     // instance variables - replace the example below with your own
     private int x;
-    private  double biaya;
-    private  Customer pelanggan;
-    private  String nama_pelanggan;
-    private  String jenis_kamar;
-    private  boolean isDiproses;
-    private  boolean isSelesai;
+    private double biaya;
+    private Customer pelanggan;
+    private String nama_pelanggan;
+    private TipeKamar tipe_kamar;
+    private boolean isDiproses;
+    private boolean isSelesai;
+    private Room kamar;
     
     /**
      * Constructor for objects of class Pesanan
@@ -24,6 +25,7 @@ public class Pesanan
         // initialise instance variables
        this.biaya=biaya;
        this.pelanggan = pelanggan;
+       
     }
     
     /**
@@ -33,7 +35,7 @@ public class Pesanan
      * @return  biaya
      */
 
-    public  double getbiaya()
+    public double getbiaya()
     {
         return biaya;    
     }
@@ -45,9 +47,19 @@ public class Pesanan
      * @return  pelanggan
      */
 
-    public  Customer getpelanggan()
+    public Customer getpelanggan()
     {
         return pelanggan;   
+    }
+    
+    public String getNamaPelanggan()
+    {
+        return nama_pelanggan;
+    }
+    
+    public TipeKamar getTipeKamar()
+    {
+        return tipe_kamar;
     }
     
     /**
@@ -57,9 +69,9 @@ public class Pesanan
      * @return  StatusDiproses
      */
 
-    public  boolean getStatusDiproses()
+    public Customer getStatusDiproses()
     {
-        return isDiproses;
+        return pelanggan;
     }
     
     /**
@@ -69,9 +81,14 @@ public class Pesanan
      * @return  StatusSelesai
      */
 
-    public  boolean getStatusSelesai()
+    public boolean getStatusSelesai()
     {
         return isSelesai;
+    }
+    
+    public Room getRoom()
+    {
+        return kamar;
     }
     
     /**
@@ -81,7 +98,7 @@ public class Pesanan
      * @return  biaya
      */
 
-    public  double setBiaya(double biaya)
+    public double setBiaya(double biaya)
     {
         this.biaya = biaya;
         return biaya;
@@ -94,10 +111,22 @@ public class Pesanan
      * @return  pelanggan
      */
 
-    public  Customer setPelanggan(Customer baru)
+    public void setPelanggan(Customer pelanggan)
     {
         this.pelanggan = pelanggan;
-        return pelanggan;
+        
+    }
+    
+    public void setNamaPelanggan(String nama_pelanggan)
+    {
+        this.nama_pelanggan = nama_pelanggan;
+        
+    }
+    
+    public void setTipeKamar(TipeKamar tipe_kamar)
+    {
+        this.tipe_kamar = tipe_kamar;
+        
     }
     
     /**
@@ -107,7 +136,7 @@ public class Pesanan
      * @return  StatusDiproses
      */
 
-    public  boolean setStatusDiproses(boolean diproses)
+    public boolean setStatusDiproses(boolean diproses)
     {
         this.isDiproses = isDiproses;
         return isDiproses;
@@ -120,10 +149,15 @@ public class Pesanan
      * @return  StatusSelesai
      */
 
-    public  boolean setStatusSelesai(boolean diproses)
+    public boolean setStatusSelesai(boolean diproses)
     {
         this.isSelesai = isSelesai;
         return isSelesai;
+    }
+    
+    public void setRoom(Room kamar)
+    {
+        this.kamar = kamar;
     }
     
     /**
@@ -134,9 +168,12 @@ public class Pesanan
      * @return  biaya pelanggan
      */
 
-    public void printdata(double biaya,Customer pelanggan)
+    public void printdata()
     {
-        this.biaya=biaya;
-        this.pelanggan = pelanggan;
+        System.out.println("Nama:"+this.nama_pelanggan);
+        System.out.println("Tipe Kamar:"+this.tipe_kamar);
+        System.out.println("Diproses:"+this.isDiproses);
+        System.out.println("Selesai:"+this.isSelesai);
+        
     }
 }

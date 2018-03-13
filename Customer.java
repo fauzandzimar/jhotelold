@@ -19,6 +19,7 @@ public class Customer
         // initialise instance variables
         this.nama = nama;
         this.id = id;
+        
     }
 
     /**
@@ -77,10 +78,10 @@ public class Customer
      * @return nama id
      */
 
-    public void printdata(String nama,int id)
+    public void printdata()
     {
-        this.nama = nama;
-        this.id = id;
+        System.out.println("ID:"+this.id);
+        System.out.println("Nama:"+this.nama);
     }
 }
 

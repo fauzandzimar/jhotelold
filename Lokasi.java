@@ -106,8 +106,8 @@ public class Lokasi
 
     public void printdata()
     {
-        this.x_coord = x_coord;
-        this.y_coord = y_coord;
-        this.deskripsiLokasi = deskripsiLokasi; 
+        System.out.println("Koordinat X:"+this.x_coord);
+        System.out.println("Koordinat Y"+this.y_coord);
+        System.out.println("Nama Lokasi:"+this.deskripsiLokasi); 
     }
 }
