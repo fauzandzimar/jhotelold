@@ -10,9 +10,8 @@ public class Pesanan
     // instance variables - replace the example below with your own
     private int x;
     private double biaya;
+    private double jumlahHari;
     private Customer pelanggan;
-    private String nama_pelanggan;
-    private TipeKamar tipe_kamar;
     private boolean isDiproses;
     private boolean isSelesai;
     private Room kamar;
@@ -20,7 +19,7 @@ public class Pesanan
     /**
      * Constructor for objects of class Pesanan
      */
-    public Pesanan(double biaya,Customer pelanggan)
+    public Pesanan(double jumlahHari,double biaya,Customer pelanggan)
     {
         // initialise instance variables
        this.biaya=biaya;
@@ -40,6 +39,11 @@ public class Pesanan
         return biaya;    
     }
     
+    public double getJumlahHari()
+    {
+        return jumlahHari;    
+    }
+    
     /**
      * Method get pelanggan
      *
@@ -50,16 +54,6 @@ public class Pesanan
     public Customer getpelanggan()
     {
         return pelanggan;   
-    }
-    
-    public String getNamaPelanggan()
-    {
-        return nama_pelanggan;
-    }
-    
-    public TipeKamar getTipeKamar()
-    {
-        return tipe_kamar;
     }
     
     /**
@@ -98,10 +92,14 @@ public class Pesanan
      * @return  biaya
      */
 
-    public double setBiaya(double biaya)
+    public void setBiaya(double biaya)
     {
         this.biaya = biaya;
-        return biaya;
+    }
+    
+    public void setJumlahHari(double jumlahHari)
+    {
+        this.jumlahHari = jumlahHari;
     }
     
     /**
@@ -117,18 +115,6 @@ public class Pesanan
         
     }
     
-    public void setNamaPelanggan(String nama_pelanggan)
-    {
-        this.nama_pelanggan = nama_pelanggan;
-        
-    }
-    
-    public void setTipeKamar(TipeKamar tipe_kamar)
-    {
-        this.tipe_kamar = tipe_kamar;
-        
-    }
-    
     /**
      * Method set StatusDiproses
      *
@@ -136,10 +122,10 @@ public class Pesanan
      * @return  StatusDiproses
      */
 
-    public boolean setStatusDiproses(boolean diproses)
+    public void setStatusDiproses(boolean diproses)
     {
         this.isDiproses = isDiproses;
-        return isDiproses;
+        
     }
     
     /**
@@ -149,10 +135,10 @@ public class Pesanan
      * @return  StatusSelesai
      */
 
-    public boolean setStatusSelesai(boolean diproses)
+    public void setStatusSelesai(boolean diproses)
     {
         this.isSelesai = isSelesai;
-        return isSelesai;
+        
     }
     
     public void setRoom(Room kamar)
@@ -170,10 +156,9 @@ public class Pesanan
 
     public void printdata()
     {
-        System.out.println("Nama:"+this.nama_pelanggan);
-        System.out.println("Tipe Kamar:"+this.tipe_kamar);
+        System.out.println("Nama Pelanggan:"+this.pelanggan);
         System.out.println("Diproses:"+this.isDiproses);
         System.out.println("Selesai:"+this.isSelesai);
-        
+        System.out.println("Biaya:"+this.biaya);
     }
 }

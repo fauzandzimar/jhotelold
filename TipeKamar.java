@@ -7,10 +7,16 @@
  */
 public enum TipeKamar
 {
-    Single, Double, Premium;
+    Single("Single Room"), Double("Double Room"), Premium("Premium Room");
     
+    private String tipe_kamar;
+    
+    TipeKamar(String tipe_kamar)
+    {
+        this.tipe_kamar= tipe_kamar;
+    }
     public String toString()
     {
-        return null;
+        return tipe_kamar;
     }
 }

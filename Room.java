@@ -5,29 +5,27 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Room
+public abstract class Room
 {
     // instance variables - replace the example below with your own
     private Hotel hotel;
-    private int id;
     private String nomor_kamar;
     private boolean isAvailable;
-    private Customer customer;
-    private double dailytariff;
+    protected static double dailytariff;
     private StatusKamar status_kamar;
     private Pesanan pesan;
 
     /**
      * Constructor for objects of class Room
      */
-    public Room(Hotel hotel,String nomor_kamar,boolean isAvailable,Customer customer,double dailyTariff,
+    public Room(Hotel hotel,String nomor_kamar,boolean isAvailable,
     StatusKamar status_kamar)
     {
         // initialise instance variables
         this.hotel = hotel;
         this.nomor_kamar = nomor_kamar;
         this.isAvailable = isAvailable;
-        this.customer = customer;
+       
         this.dailytariff = dailytariff;
         this.status_kamar = status_kamar;
     }
@@ -50,46 +48,10 @@ public class Room
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int getID()
-    {
-        // put your code here
-        return id;
-    }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public String getNomorKamar()
-    {
-        // put your code here
-        return nomor_kamar;
-    }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public boolean getStatusAvailable()
     {
         // put your code here
         return isAvailable;
-    }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public Customer getCustomer()
-    {
-        // put your code here
-        return customer;
     }
     
     /**
@@ -134,11 +96,8 @@ public class Room
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void setHotel()
-    {
-        // put your code here
-        this.hotel = hotel;
-    }
+    abstract public TipeKamar getTipeKamar();
+    
     
     /**
      * An example of a method - replace this comment with your own
@@ -146,10 +105,10 @@ public class Room
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void setID(int id)
+    public void setHotel(Hotel hotel)
     {
         // put your code here
-        this.id = id;
+        this.hotel = hotel;
     }
     
     /**
@@ -176,17 +135,7 @@ public class Room
         this.isAvailable = isAvailable;
     }
     
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void setCustomer(Customer customer)
-    {
-        // put your code here
-        this.customer = customer;
-    }
+    
     
     /**
      * An example of a method - replace this comment with your own
@@ -236,7 +185,7 @@ public class Room
         System.out.println("Hotel:"+this.hotel);
         System.out.println("Nomor Kamar:"+this.nomor_kamar);
         System.out.println("Tersedia:"+this.isAvailable);
-        System.out.println("Pelanggan:"+this.customer);
+        System.out.println("Tipe Kamar:"+ getTipeKamar());
         System.out.println("Harga:"+this.dailytariff);
         System.out.println("Status Kamar:"+this.status_kamar);
     }
