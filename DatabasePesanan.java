@@ -8,8 +8,7 @@
 public class DatabasePesanan
 {
     // instance variables - replace the example below with your own
-    private  int x;
-    private  String[] list_pesanan;
+    private  Pesanan list_pesanan;
     
     /**
      * Constructor for objects of class DatabasePesanan
@@ -17,7 +16,7 @@ public class DatabasePesanan
     public DatabasePesanan()
     {
         // initialise instance variables
-        x = 0;
+       
     }
 
     /**
@@ -53,7 +52,7 @@ public class DatabasePesanan
 
     public  Pesanan getPesanan(Customer cust)
     {
-        return null;
+        return list_pesanan;
     }
     
     /**
@@ -63,7 +62,7 @@ public class DatabasePesanan
      * @return PesananDatabase
      */
 
-    public  String[] getPesananDatabase()
+    public String[] getPesananDatabase()
     {
         return null;
     }
@@ -75,7 +74,7 @@ public class DatabasePesanan
      * @return  pesananDibatalkan
      */
 
-    public  void pesananDibatalkan(Pesanan pesan)
+    public void pesananDibatalkan(Pesanan pesan)
     {
         
     }

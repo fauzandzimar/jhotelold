@@ -8,8 +8,7 @@
 public class Hotel
 {
     // instance variables - replace the example below with your own
-    private int x;
-    private String nama;
+    private static String nama;
     private Lokasi lokasi;
     private int bintang;
     /**
@@ -40,7 +39,7 @@ public class Hotel
      * @param nama
      * @return nama   
      */
-    public String getNama()
+    public static String getNama()
     {
         return nama;
     }
@@ -97,10 +96,12 @@ public class Hotel
      * @param bintang
      * @return nama lokasi bintang   
      */
-    public void printData()
+    public String toString()
     {
-        System.out.println("Nama Hotel:"+this.nama);
-        System.out.println("Lokasi:"+this.lokasi);
-        System.out.println("Bintang:"+this.bintang);
+       
+        System.out.println("Nama Hotel:"+getNama());
+        System.out.println("Lokasi:"+getLokasi());
+        System.out.println("Bintang:"+getBintang());
+        return "";
     }
 }

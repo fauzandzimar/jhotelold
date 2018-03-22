@@ -9,7 +9,7 @@ public enum TipeKamar
 {
     Single("Single Room"), Double("Double Room"), Premium("Premium Room");
     
-    private String tipe_kamar;
+    public String tipe_kamar;
     
     TipeKamar(String tipe_kamar)
     {

@@ -23,6 +23,5 @@ comment7.params=deskripsi
 comment7.target=void\ setDeskripsi(java.lang.String)
 comment7.text=\r\n\ Method\ set\ deskripsiLokasi\r\n\r\n\ @param\ deskripsiLokasi\r\n\ @return\ deskripsiLokasi\ \r\n
 comment8.params=
-comment8.target=void\ printdata()
-comment8.text=\r\n\ Method\ print\ x\ y\ deskripsilokasi\r\n\r\n\ @param\ x\r\n\ @param\ y\r\n\ @param\ deskripsilokasi\r\n\ @return\ \ x\ y\ deskripsilokasi\r\n
+comment8.target=java.lang.String\ toString()
 numComments=9

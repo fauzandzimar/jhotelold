@@ -15,6 +15,6 @@ public enum StatusKamar
     }
     public String toString()
     {
-        return null;
+        return status_kamar;
     }
 }

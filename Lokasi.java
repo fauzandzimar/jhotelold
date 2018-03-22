@@ -95,19 +95,12 @@ public class Lokasi
        this.deskripsiLokasi = deskripsiLokasi; 
     }
     
-    /**
-     * Method print x y deskripsilokasi
-     *
-     * @param x
-     * @param y
-     * @param deskripsilokasi
-     * @return  x y deskripsilokasi
-     */
-
-    public void printdata()
+    public String toString()
     {
-        System.out.println("Koordinat X:"+this.x_coord);
-        System.out.println("Koordinat Y"+this.y_coord);
-        System.out.println("Nama Lokasi:"+this.deskripsiLokasi); 
+        
+        System.out.println("Koordinat X:"+getX());
+        System.out.println("Koordinat Y:"+getY());
+        System.out.println("Nama Lokasi::"+getDeskripsi());
+        return"";
     }
 }

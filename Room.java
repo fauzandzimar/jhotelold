@@ -9,12 +9,11 @@ public abstract class Room
 {
     // instance variables - replace the example below with your own
     private Hotel hotel;
-    private String nomor_kamar;
+    private static String nomor_kamar;
     private boolean isAvailable;
-    protected static double dailytariff;
     private StatusKamar status_kamar;
     private Pesanan pesan;
-
+    protected static double dailytariff;
     /**
      * Constructor for objects of class Room
      */
@@ -25,7 +24,6 @@ public abstract class Room
         this.hotel = hotel;
         this.nomor_kamar = nomor_kamar;
         this.isAvailable = isAvailable;
-       
         this.dailytariff = dailytariff;
         this.status_kamar = status_kamar;
     }
@@ -40,6 +38,18 @@ public abstract class Room
     {
         // put your code here
         return hotel;
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static String getNomorKamar()
+    {
+        // put your code here
+        return nomor_kamar;
     }
     
     /**
@@ -188,5 +198,17 @@ public abstract class Room
         System.out.println("Tipe Kamar:"+ getTipeKamar());
         System.out.println("Harga:"+this.dailytariff);
         System.out.println("Status Kamar:"+this.status_kamar);
+    }
+    
+    public String toString()
+    {
+        
+        System.out.println("Hotel:"+getHotel());
+        System.out.println("Nomor Kamar:"+getNomorKamar());
+        System.out.println("Tersedia:"+getStatusAvailable());
+        System.out.println("Tipe Kamar:"+ getTipeKamar());
+        System.out.println("Harga:"+getDailyTariff());
+        System.out.println("Status Kamar:"+getStatusKamar());
+        return "";
     }
 }

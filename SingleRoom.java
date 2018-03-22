@@ -10,6 +10,8 @@ public class SingleRoom extends Room
     // instance variables - replace the example below with your own
     private int x;
     private TipeKamar TIPE_KAMAR; 
+    
+    
     /**
      * Constructor for objects of class SingleRoom
      */
@@ -19,6 +21,11 @@ public class SingleRoom extends Room
         super(hotel, nomor_kamar, isAvailable, status_kamar);
     }
 
+    public static void main(String args[])
+    {
+        
+    }
+    
     /**
      * An example of a method - replace this comment with your own
      *
@@ -28,6 +35,6 @@ public class SingleRoom extends Room
     public TipeKamar getTipeKamar()
     {
         // put your code here
-        return null;
+        return TIPE_KAMAR;
     }
 }

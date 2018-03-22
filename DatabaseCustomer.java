@@ -9,7 +9,7 @@ public class DatabaseCustomer
 {
     // instance variables - replace the example below with your own
     private int x;
-    private static String[] list_customer; 
+    private Customer list_customer; 
     /**
      * Constructor for objects of class DatabaseCustomer
      */
@@ -26,7 +26,7 @@ public class DatabaseCustomer
      * @return  add customer
      */
 
-    public static boolean addCustomer(Customer baru)
+    public  boolean addCustomer(Customer baru)
     {
         return false;
     }
@@ -38,9 +38,9 @@ public class DatabaseCustomer
      * @return  customer id removed
      */
 
-    public static int removeCustomer(int id)
+    public boolean removeCustomer(int id)
     {
-        return id;
+        return false;
     }
     
     /**
@@ -50,9 +50,9 @@ public class DatabaseCustomer
      * @return CustomerDatabase 
      */
 
-    public static String[] getCustomerDatabase()
+    public String[] getCustomerDatabase()
     {
-        return list_customer;
+        return null;
     }
     
 }

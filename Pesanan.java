@@ -1,4 +1,7 @@
-
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 /**
  * class Pesanan .
  *
@@ -8,13 +11,13 @@
 public class Pesanan
 {
     // instance variables - replace the example below with your own
-    private int x;
     private double biaya;
     private double jumlahHari;
     private Customer pelanggan;
     private boolean isDiproses;
     private boolean isSelesai;
     private Room kamar;
+    private Date tanggalPesan;
     
     /**
      * Constructor for objects of class Pesanan
@@ -34,7 +37,7 @@ public class Pesanan
      * @return  biaya
      */
 
-    public double getbiaya()
+    public double getBiaya()
     {
         return biaya;    
     }
@@ -63,9 +66,9 @@ public class Pesanan
      * @return  StatusDiproses
      */
 
-    public Customer getStatusDiproses()
+    public boolean getStatusDiproses()
     {
-        return pelanggan;
+        return isDiproses;
     }
     
     /**
@@ -83,6 +86,14 @@ public class Pesanan
     public Room getRoom()
     {
         return kamar;
+    }
+    
+    public Date getTanggalPesan()
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("h:mm a");
+        System.out.printf("Tanggal Pemesanan : " + sdf.format(tanggalPesan) + "\n\n");
+        return tanggalPesan;
     }
     
     /**
@@ -146,19 +157,43 @@ public class Pesanan
         this.kamar = kamar;
     }
     
+    public void setTanggalPesan(Date tanggalPesan)
+    {
+        this.tanggalPesan = tanggalPesan;
+    }
+    
     /**
-     * Method print biaya pelanggan
+     * Method tostring
      *
      * @param biaya
      * @param pelanggan
      * @return  biaya pelanggan
      */
-
-    public void printdata()
+    public String toString()
     {
-        System.out.println("Nama Pelanggan:"+this.pelanggan);
-        System.out.println("Diproses:"+this.isDiproses);
-        System.out.println("Selesai:"+this.isSelesai);
-        System.out.println("Biaya:"+this.biaya);
+        String final_status = "KOSONG";
+        if (isDiproses == true & isSelesai == false)
+        {
+            final_status = "DIPROSES";
+        }
+        
+        if (isDiproses == false & isSelesai == false)
+        {
+            final_status = "KOSONG";
+        }
+        
+        if (isDiproses == false & isSelesai == true)
+        {
+            final_status = "SELESAI";
+        }
+        
+        if (pelanggan == null)
+        {    
+                System.out.println("Dibuat oleh " + Customer.getNama() + ". Proses booking untuk " +Hotel.getNama() + 
+                "kamar nomor " + Room.getNomorKamar() + " dengan tipe kamar yang diinginkan " + ". Status: " + final_status + "." );
+            }
+        
+        return"";
     }
 }
+
