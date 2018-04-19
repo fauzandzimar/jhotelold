@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class DatabaseHotel here.
@@ -7,42 +8,53 @@
  */
 public class DatabaseHotel
 {
-    // instance variables - replace the example below with your own
-    private int x;
-    private  String[] list_hotel;
-    /**
-     * Constructor for objects of class DatabaseHotel
-     */
-    public DatabaseHotel()
+    private static ArrayList<Hotel> HOTEL_DATABASE = new ArrayList<>();
+    private static int LAST_HOTEL_ID = 0;
+
+    public static ArrayList<Hotel> getHotelDatabase()
     {
-        // initialise instance variables
-        x = 0;
+        return HOTEL_DATABASE;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public static int getLastHotelID()
     {
-        // put your code here
-        return x + y;
+        return LAST_HOTEL_ID;
     }
-    
-     public boolean addHotel (Hotel baru)
+
+    public static boolean addHotel(Hotel baru)
     {
-        return false;
+        for (Hotel hotel : HOTEL_DATABASE)
+        {
+            if (hotel.getID() == baru.getID()) return false;
+        }
+        HOTEL_DATABASE.add(baru);
+        LAST_HOTEL_ID = baru.getID();
+        return true;
     }
-    
-    public boolean removeHotel (Hotel baru)
+
+    public static Hotel getHotel(int id)
     {
-        return false;
-    }
-    
-    public  String[] getHotelDatabase()
-    {
+        for (Hotel hotel : HOTEL_DATABASE)
+        {
+            if (hotel.getID() == id) return hotel;
+        }
         return null;
+    }
+
+    public static boolean removeHotel(int id)
+    {
+        for (Hotel hotel : HOTEL_DATABASE)
+        {
+            if (hotel.getID() == id)
+            {
+                for (Room kamar : DatabaseRoom.getRoomsFromHotel(hotel))
+                {
+                    DatabaseRoom.removeRoom(hotel, kamar.getNomorKamar());
+                }
+                HOTEL_DATABASE.remove(hotel);
+                return true;
+            }
+        }
+        return false;
     }
 }

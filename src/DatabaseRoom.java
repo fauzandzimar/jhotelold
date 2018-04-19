@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class DatabaseRoom here.
@@ -7,42 +8,79 @@
  */
 public class DatabaseRoom
 {
-    // instance variables - replace the example below with your own
-    private int x;
-    private  String[] list_room;
-    /**
-     * Constructor for objects of class DatabaseRoom
-     */
-    public DatabaseRoom()
+    private static ArrayList<Room> ROOM_DATABASE = new ArrayList<>();
+
+    public static ArrayList<Room> getRoomDatabase()
     {
-        // initialise instance variables
-        x = 0;
+        return ROOM_DATABASE;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public static boolean addRoom(Room baru)
     {
-        // put your code here
-        return x + y;
+        if (baru.getHotel() != null)
+        {
+            for (Room kamar : ROOM_DATABASE)
+            {
+                if (kamar.getHotel().equals(baru.getHotel()))
+                {
+                    return false;
+                }
+            }
+            ROOM_DATABASE.add(baru);
+            return true;
+        }
+        else return false;
     }
-    
-    public boolean addRoom (Customer baru)
+
+    public static Room getRoom(Hotel hotel, String nomor_kamar)
     {
-        return false;
-    }
-    
-    public boolean removeRoom (int id)
-    {
-        return false;
-    }
-    
-    public  String[] getRoomDatabase()
-    {
+        for (Room kamar : ROOM_DATABASE)
+        {
+            if (kamar.getHotel().equals(hotel))
+            {
+                return kamar;
+            }
+        }
         return null;
+    }
+
+    public static ArrayList<Room> getRoomsFromHotel(Hotel hotel)
+    {
+        ArrayList<Room> toReturn = new ArrayList<>();
+        for (Room kamar : ROOM_DATABASE)
+        {
+            if (kamar.getHotel().equals(hotel))
+            {
+                toReturn.add(kamar);
+            }
+        }
+        return toReturn;
+    }
+
+    public static ArrayList<Room> getVacantRooms()
+    {
+        ArrayList<Room> toReturn = new ArrayList<>();
+        for (Room kamar : ROOM_DATABASE)
+        {
+            if (kamar.getStatusKamar().equals(StatusKamar.VACANT))
+            {
+                toReturn.add(kamar);
+            }
+        }
+        return toReturn;
+    }
+
+    public static boolean removeRoom(Hotel hotel, String nomor_kamar)
+    {
+        for (Room kamar : ROOM_DATABASE)
+        {
+            if (kamar.getHotel().equals(hotel))
+            {
+                Administrasi.pesananDibatalkan(kamar);
+                ROOM_DATABASE.remove(kamar);
+                return true;
+            }
+        }
+        return false;
     }
 }

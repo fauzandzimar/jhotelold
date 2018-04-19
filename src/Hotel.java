@@ -8,7 +8,8 @@
 public class Hotel
 {
     // instance variables - replace the example below with your own
-    private static String nama;
+    private int id;
+    private String nama;
     private Lokasi lokasi;
     private int bintang;
     /**
@@ -20,8 +21,14 @@ public class Hotel
         this.nama = nama;
         this.lokasi = lokasi;
         this.bintang = bintang;
+        this.id = DatabaseHotel.getLastHotelID()+1;
     }
-    
+
+    public int getID()
+    {
+        return id;
+    }
+
     /**
      * Method get bintang
      *
@@ -54,7 +61,12 @@ public class Hotel
     {
         return lokasi;
     }
-    
+
+    public void setID(int id)
+    {
+        this.id = id;
+    }
+
     /**
      * Method set nama
      *

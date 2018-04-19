@@ -2,6 +2,8 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.GregorianCalendar;
+import java.util.*;
+import java.text.*;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 /**
@@ -20,23 +22,18 @@ public class Customer
     /**
      * Constructor for objects of class Customer
      */
-    public Customer(int id, String nama)
+    public Customer(int id, String nama, Date dob)
     {
-        // initialise instance variables
+        this.id = DatabaseCustomer.getLastCustomerID() + 1;
         this.nama = nama;
-        this.id = id;
-        
+        this.dob = dob;
     }
-    
-    /**
-     * Constructor for objects of class Customer
-     */
-    public Customer(Date tanggal, Date bulan, Date Tahun)
+
+    public Customer(int id, String nama, int year, int month, int date)
     {
-        // initialise instance variables
+        this.id = DatabaseCustomer.getLastCustomerID() + 1;
         this.nama = nama;
-        this.id = id;
-        
+        this.dob = new GregorianCalendar(year, month-1, date).getTime();
     }
     
     /**
@@ -70,9 +67,11 @@ public class Customer
     
     public  Date getDOB()
     {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat df = new SimpleDateFormat("h:mm a");
-        System.out.printf("DOB : " + sdf.format(dob) + "\n\n");
+       // SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        //SimpleDateFormat df = new SimpleDateFormat("h:mm a");
+        //System.out.printf("DOB : " + sdf.format(dob) + "\n\n");
+        System.out.printf("\n%s %te %tB %tY", "DOB : ", dob, dob,
+                dob, dob);
         return dob;
     }
     
@@ -130,16 +129,21 @@ public class Customer
     public void setDOB(Date dob)
     {
         this.dob = dob;
-    }      
-    
-    public String toString()
-    {
-        System.out.println("Nama Pelanggan:" + " " + getNama());
-        System.out.println("Customer ID:"+getID());
-        System.out.println("Nama:"+getNama());
-        System.out.println("Email:"+getEmail());
-        System.out.println("Tanggal:"+getDOB());
-        return "";
+    }
+
+    public String toString() {
+        if (DatabasePesanan.getPesananAktif(this) == null) {
+            return "\nCustomer ID    :" + getID()
+                    + "\nName           :" + getNama()
+                    + "\nE-Mail         :" + getEmail()
+                    + "\nDate of Birth  :" + dobformat.format(getDOB());
+        } else {
+            return "\nCustomer ID    :" + getID()
+                    + "\nName           :" + getNama()
+                    + "\nE-Mail         :" + getEmail()
+                    + "\nDate of Birth  :" + dobformat.format(getDOB())
+                    + "\nBooking Order is in progress";
+        }
     }
 }
 

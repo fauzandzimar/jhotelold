@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * class DatabaseCustomer .
@@ -7,52 +8,68 @@
  */
 public class DatabaseCustomer
 {
-    // instance variables - replace the example below with your own
-    private int x;
-    private Customer list_customer; 
-    /**
-     * Constructor for objects of class DatabaseCustomer
-     */
-    public DatabaseCustomer()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-    
-    /**
-     * Method add customer 
-     *
-     * @param customer
-     * @return  add customer
-     */
+    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<>();
+    private static int LAST_CUSTOMER_ID = 0;
 
-    public  boolean addCustomer(Customer baru)
+    public static ArrayList<Customer> getCustomerDatabase()
     {
-        return false;
+        return CUSTOMER_DATABASE;
     }
-    
-    /**
-     * Method remove customer 
-     *
-     * @param id
-     * @return  customer id removed
-     */
 
-    public boolean removeCustomer(int id)
+    public static int getLastCustomerID()
     {
-        return false;
+        return LAST_CUSTOMER_ID;
     }
-    
-    /**
-     * Method get CustomerDatabase
-     *
-     * @param CustomerDatabase
-     * @return CustomerDatabase 
-     */
 
-    public String[] getCustomerDatabase()
+    /**
+     * Method addCustomer untuk menambahkan Customer baru
+     *
+     * @param baru Parameter untuk baru
+     * @return false
+     */
+    public static boolean addCustomer(Customer baru)
     {
+        for (Customer cust : CUSTOMER_DATABASE)
+        {
+            if (cust.getID() == baru.getID()) return false;
+        }
+        CUSTOMER_DATABASE.add(baru);
+        LAST_CUSTOMER_ID = baru.getID();
+        return true;
+    }
+
+    public static Customer getCustomer(int id)
+    {
+        for (Customer cust : CUSTOMER_DATABASE)
+        {
+            if (cust.getID() == id) return cust;
+        }
         return null;
     }
-    
+
+    /**
+     * Method removeCustomer untuk menghapus Customer yang sudah ada
+     *
+     * @param id Parameter id
+     * @return false
+     */
+    public static boolean removeCustomer(int id)
+    {
+        for (Customer cust : CUSTOMER_DATABASE)
+        {
+            if (cust.getID() == id)
+            {
+                for (Pesanan pesan : DatabasePesanan.getPesananDatabase())
+                {
+                    if (pesan.getPelanggan().equals(cust))
+                    {
+                        DatabasePesanan.removePesanan(pesan);
+                    }
+                }
+                CUSTOMER_DATABASE.remove(cust);
+                return true;
+            }
+        }
+        return false;
+    }
 }

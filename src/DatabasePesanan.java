@@ -8,98 +8,105 @@ import java.util.ArrayList;
  */
 public class DatabasePesanan
 {
-    // instance variables - replace the example below with your own
-    private static ArrayList<Pesanan> list_pesanan = new ArrayList<Pesanan>();
-    private int LAST_PESANAN_ID;
-    /**
-     * Constructor for objects of class DatabasePesanan
-     */
-    public DatabasePesanan()
+    private static ArrayList<Pesanan> PESANAN_DATABASE = new ArrayList<Pesanan>();
+    private static int LAST_PESANAN_ID = 0;
+
+    public static ArrayList<Pesanan> getPesananDatabase()
     {
-        LAST_PESANAN_ID = 0;
-       
+        return PESANAN_DATABASE;
     }
 
-    public ArrayList<Pesanan> getPesananDatabase() {return list_pesanan;}
-    public int getLast_Pesanan_ID(){return LAST_PESANAN_ID;}
-    /**
-     * Method add pesanan 
-     *
-     * @param pesanan
-     * @return  pesanan
-     */
-
-    public  boolean addPesanan(Pesanan baru)
+    public static int getLastPesananId()
     {
-        if(list_pesanan==null)
+        return LAST_PESANAN_ID;
+    }
+
+    /**
+     * Method addPesanan untuk menambahkan pesanan
+     *
+     * @param baru Parameter baru
+     * @return false
+     */
+    public static boolean addPesanan(Pesanan baru)
+    {
+        if (baru.getStatusAktif() == true)
         {
-            System.out.println("Pesanan berhasil dilakukan");
-            return true;
-        }
-        else
-        {
-            System.out.println("Pesanan gagal dilakukan");
             return false;
         }
-    }
-    
-    /**
-     * Method remove pesanan 
-     *
-     * @param pesanan
-     * @return  pesanan
-     */
-
-    public  boolean removePesanan(Pesanan pesan)
-    {
-        return false;
-    }
-    
-    /**
-     * Method get pesanan
-     *
-     * @param pesanan
-     * @return  pesanan
-     */
-
-    public Pesanan getPesanan(int id)
-    {
-        if(list_pesanan.contains(null))
-        {
-            System.out.println("Tidak ada pesanan yang sedang berjalan\n");
-            return null;
-        }
-        if(list_pesanan.contains(id))
-        {
-            System.out.println(list_pesanan.get(id));
-
-        }
-    }
-
-    public Pesanan getPesanan(Room kamar)
-    {
-        if(list_pesanan.contains(kamar))
-        {
-            return getPesanan();
-        }
         else
         {
-            System.out.println("Tidak ada kamar yang sedang dipesan\n");
-            return null;
+            PESANAN_DATABASE.add(baru);
+            return true;
         }
+    }
 
+
+    public static Pesanan getPesanan(int id)
+    {
+        for (Pesanan pesan: PESANAN_DATABASE)
+        {
+            if(pesan.getID() == id)
+            {
+                return pesan;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static Pesanan getPesanan(Room kamar)
+    {
+        for (Pesanan pesan: PESANAN_DATABASE)
+        {
+            if(pesan.getRoom().equals(kamar))
+            {
+                return pesan;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static Pesanan getPesananAktif(Customer pelanggan)
+    {
+        for (Pesanan pesan: PESANAN_DATABASE)
+        {
+            if(pesan.getStatusAktif() == true)
+            {
+                return pesan;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        return null;
     }
 
     /**
-     * Method pesananDibatalkan 
+     * Method removePesanan untuk menghapus pesanan
      *
-     * @param pesananDibatalkan
-     * @return  pesananDibatalkan
+     * @param pesan Parameter pesan
+     * @return false
      */
-
-    public void pesananDibatalkan(Pesanan pesan)
+    public static boolean removePesanan(Pesanan pesan)
     {
-        
+        for (Pesanan y: PESANAN_DATABASE)
+        {
+            if(pesan.equals(y))
+            {
+                if(pesan.getRoom() != null) Administrasi.pesananDibatalkan(pesan);
+                else if (pesan.getStatusAktif()) pesan.setStatusAktif(false);
+                PESANAN_DATABASE.remove(y);
+                return true;
+            }
+        }
+        return false;
     }
-    
 }

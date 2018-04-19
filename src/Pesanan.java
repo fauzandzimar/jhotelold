@@ -24,11 +24,16 @@ public class Pesanan
     /**
      * Constructor for objects of class Pesanan
      */
-    public Pesanan(double jumlahHari,Customer pelanggan)
+    public Pesanan(double jumlahHari,Customer pelanggan, int id)
     {
         // initialise instance variables
-       this.biaya=biaya;
-       this.pelanggan = pelanggan;
+
+        this.jumlahHari = jumlahHari;
+        this.pelanggan = pelanggan;
+        this.biaya = jumlahHari * getRoom().getDailyTariff();
+        this.isAktif = true;
+        this.tanggalPesan = new Date();
+        this.id = DatabasePesanan.getLastPesananId()+1;
 
     }
 
@@ -64,7 +69,7 @@ public class Pesanan
         return pelanggan;   
     }
 
-    public double getStatusAktif()
+    public boolean getStatusAktif()
     {
         return isAktif;
     }
@@ -109,6 +114,7 @@ public class Pesanan
         GregorianCalendar calendar = new GregorianCalendar();
         Date tanggalPesan = calendar.getTime();
         System.out.println(tanggalPesan);
+        return tanggalPesan;
     }
 
     public void setID(int id) {this.id = id;}
