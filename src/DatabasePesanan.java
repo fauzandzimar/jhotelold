@@ -29,15 +29,65 @@ public class DatabasePesanan
      */
     public static boolean addPesanan(Pesanan baru)
     {
-        if (baru.getStatusAktif() == true)
+        /**if (baru.getStatusAktif() == true)
         {
             return false;
+            try
+            {
+                if(pesan.getPelanggan().equals(PESANAN_DATABASE.get(i).getPelanggan()))
+                {
+                    //System.out.println("Pesanan Gagal Dilakukan\n");
+                    //return false;
+                    throw new PesananSudahAdaException(pesan);
+                }
+            }
+            catch(PesananSudahAdaException pesanan_input)
+            {
+                pesanan_input.getMessage();
+                throw pesanan_input;
+            }
         }
         else
         {
             PESANAN_DATABASE.add(baru);
             return true;
+        }*/
+        if(PESANAN_DATABASE.isEmpty())
+        {
+            PESANAN_DATABASE.add(baru);
+            //PESANAN_DATABASE = pesan;
+            System.out.println("Pesanan Berhasil Dilakukan\n");
+            return true;
         }
+
+        //if(pesan.getPelanggan() != pesan.getPelanggan())
+        else
+        {
+            for (int i = 0; i < PESANAN_DATABASE.size(); i++)
+            {
+                //if(PESANAN_DATABASE.get(i).getPelanggan().equals(pesan))
+                try
+                {
+                    if(Pesanan.getPelanggan().equals(PESANAN_DATABASE.get(i).getPelanggan()))
+                    {
+                        //System.out.println("Pesanan Gagal Dilakukan\n");                        
+                        //return false;
+                        throw new PesananSudahAdaException(baru);
+                    }
+                }
+                catch(PesananSudahAdaException pesanan_input)
+                {
+                    pesanan_input.getPesan();
+                    throw pesanan_input;
+                }
+                //throw new PesananSudahAdaException(pesan);
+            }
+            PESANAN_DATABASE.add(baru);
+            //PESANAN_DATABASE = pesan;
+            System.out.println("Pesanan Berhasil Dilakukan\n");
+            return true;
+        }
+
     }
 
 
@@ -106,7 +156,17 @@ public class DatabasePesanan
                 PESANAN_DATABASE.remove(y);
                 return true;
             }
+
         }
         return false;
+        try
+        {
+            throw new PesananTidakDitemukanException(pesan);
+        }
+        catch(PesananTidakDitemukanException pesanan_input)
+        {
+            pesanan_input.getMessage();
+            throw pesanan_input;
+        }
     }
 }

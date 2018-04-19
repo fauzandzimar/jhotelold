@@ -19,6 +19,8 @@ public class SingleRoom extends Room
     {
         // initialise instance variables
         super(hotel, nomor_kamar, isAvailable, status_kamar);
+        this.hotel = hotel;
+        this.nomor_kamar = nomor_kamar;
     }
 
     public static void main(String args[])

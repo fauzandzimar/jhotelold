@@ -64,7 +64,7 @@ public class Pesanan
      * @return  pelanggan
      */
 
-    public Customer getpelanggan()
+    public Customer getPelanggan()
     {
         return pelanggan;   
     }

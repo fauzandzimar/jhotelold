@@ -27,6 +27,11 @@ public class DatabaseHotel
         {
             if (hotel.getID() == baru.getID()) return false;
         }
+        if(HOTEL_DATABASE.get().equals(baru))
+        {
+            System.out.println("Data Ojek sudah terdaftar dalam Database\n");
+            return false;
+        }
         HOTEL_DATABASE.add(baru);
         LAST_HOTEL_ID = baru.getID();
         return true;

@@ -27,6 +27,7 @@ public class Customer
         this.id = DatabaseCustomer.getLastCustomerID() + 1;
         this.nama = nama;
         this.dob = dob;
+        this.email = email;
     }
 
     public Customer(int id, String nama, int year, int month, int date)

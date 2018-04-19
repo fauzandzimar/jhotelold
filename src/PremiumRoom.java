@@ -19,6 +19,8 @@ public class PremiumRoom extends Room
         super(hotel, nomor_kamar, isAvailable, status_kamar);
         this.TIPE_KAMAR = TipeKamar.Premium;
         this.DISCOUNT = 0.3;
+        this.hotel = hotel;
+        this.nomor_kamar = nomor_kamar;
     }
 
     /**
